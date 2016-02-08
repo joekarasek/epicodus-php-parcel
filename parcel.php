@@ -30,6 +30,12 @@
           return $this->weight;
       }
 
+      function volume()
+      {
+          $volume = $this->length * $this->width * $this->height;
+          return $volume;
+      }
+
   }
 
   $customer_parcel = new Parcel($_GET["length"],$_GET["width"],$_GET["height"],$_GET["weight"]);
@@ -48,11 +54,13 @@
         $width = $customer_parcel->getWidth();
         $height = $customer_parcel->getHeight();
         $weight = $customer_parcel->getWeight();
+        $volume = $customer_parcel->volume();
 
         echo "<p> Parcel length: $length </P>";
         echo "<p> Parcel width: $width </P>";
         echo "<p> Parcel height: $height </P>";
         echo "<p> Parcel weight: $weight </P>";
+        echo "<p> Parcel volume: $volume </P>";
      ?>
   </body>
 </html>
