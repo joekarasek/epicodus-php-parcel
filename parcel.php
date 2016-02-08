@@ -1,17 +1,33 @@
 <?php
   class Parcel
   {
-      public $length;
-      public $width;
-      public $height;
-      public $weight;
+      private $length;
+      private $width;
+      private $height;
+      private $weight;
 
       function __construct($length,$width,$height,$weight)
       {
-        $this->length = $length;
-        $this->width = $width;
-        $this->height = $height;
-        $this->weight = $weight;
+          $this->length = $length;
+          $this->width = $width;
+          $this->height = $height;
+          $this->weight = $weight;
+      }
+      function getLength()
+      {
+          return $this->length;
+      }
+      function getWidth()
+      {
+          return $this->width;
+      }
+      function getHeight()
+      {
+          return $this->height;
+      }
+      function getWeight()
+      {
+          return $this->weight;
       }
 
   }
@@ -28,10 +44,15 @@
   </head>
   <body>
     <?php
-      echo "<p> Parcel length: $customer_parcel->length </P>";
-      echo "<p> Parcel width: $customer_parcel->width </P>";
-      echo "<p> Parcel height: $customer_parcel->height </P>";
-      echo "<p> Parcel weight: $customer_parcel->weight </P>";
+        $length = $customer_parcel->getLength();
+        $width = $customer_parcel->getWidth();
+        $height = $customer_parcel->getHeight();
+        $weight = $customer_parcel->getWeight();
+
+        echo "<p> Parcel length: $length </P>";
+        echo "<p> Parcel width: $width </P>";
+        echo "<p> Parcel height: $height </P>";
+        echo "<p> Parcel weight: $weight </P>";
      ?>
   </body>
 </html>
