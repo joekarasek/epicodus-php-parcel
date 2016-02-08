@@ -44,11 +44,14 @@
 
   }
 
-  if ($_GET["length"]!="" && $_GET["width"]!="" && $_GET["height"]!="" && $_GET["weight"]!="")
+  $properties = array("length", "width", "height", "weight");
+  foreach($properties as $property)
   {
-      $customer_parcel = new Parcel($_GET["length"],$_GET["width"],$_GET["height"],$_GET["weight"]);
-  } else {
-      die("Value not entered!");
+      if (!is_numeric($_GET[$property])) {
+          die("$property is not an integer");
+      } elseif ($_GET[$property]=="") {
+          die("$property was not defined");
+      }
   }
 
  ?>
@@ -61,6 +64,7 @@
   </head>
   <body>
     <?php
+        $customer_parcel = new Parcel($_GET["length"],$_GET["width"],$_GET["height"],$_GET["weight"]);
         $length = $customer_parcel->getLength();
         $width = $customer_parcel->getWidth();
         $height = $customer_parcel->getHeight();
