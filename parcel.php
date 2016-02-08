@@ -44,7 +44,12 @@
 
   }
 
-  $customer_parcel = new Parcel($_GET["length"],$_GET["width"],$_GET["height"],$_GET["weight"]);
+  if ($_GET["length"]!="" && $_GET["width"]!="" && $_GET["height"]!="" && $_GET["weight"]!="")
+  {
+      $customer_parcel = new Parcel($_GET["length"],$_GET["width"],$_GET["height"],$_GET["weight"]);
+  } else {
+      die("Value not entered!");
+  }
 
  ?>
 
@@ -69,7 +74,7 @@
         echo "<p> Parcel height: $height </P>";
         echo "<p> Parcel weight: $weight </P>";
         echo "<p> Parcel volume: $volume </P>";
-        echo "<p> Parcel cost: $cost </P>";
+        echo "<p> Parcel cost: $$cost </P>";
      ?>
   </body>
 </html>
