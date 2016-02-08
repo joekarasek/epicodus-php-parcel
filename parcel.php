@@ -32,8 +32,14 @@
 
       function volume()
       {
-          $volume = $this->length * $this->width * $this->height;
-          return $volume;
+          // $volume = $this->length * $this->width * $this->height;
+          // return $volume;
+          return $this->length * $this->width * $this->height;
+      }
+
+      function costToShip ()
+      {
+          return $this->volume()/10 + $this->weight/10;
       }
 
   }
@@ -55,12 +61,15 @@
         $height = $customer_parcel->getHeight();
         $weight = $customer_parcel->getWeight();
         $volume = $customer_parcel->volume();
+        $cost = $customer_parcel->costToShip();
+
 
         echo "<p> Parcel length: $length </P>";
         echo "<p> Parcel width: $width </P>";
         echo "<p> Parcel height: $height </P>";
         echo "<p> Parcel weight: $weight </P>";
         echo "<p> Parcel volume: $volume </P>";
+        echo "<p> Parcel cost: $cost </P>";
      ?>
   </body>
 </html>
